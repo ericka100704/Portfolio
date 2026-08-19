@@ -13,7 +13,7 @@ import { ThemeProvider } from './context/ThemeContext'
 export default function App() {
   return (
     <ThemeProvider>
-      <div className="relative min-h-screen text-[var(--color-ink)]">
+      <div className="relative min-h-dvh overflow-x-clip text-[var(--color-ink)]">
         <BackgroundMesh />
         <CursorGlow />
         <Navbar />

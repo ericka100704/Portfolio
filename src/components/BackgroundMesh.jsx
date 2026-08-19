@@ -14,7 +14,7 @@ export default function BackgroundMesh() {
       {orbs.map((orb, i) => (
         <motion.div
           key={i}
-          className={`absolute rounded-full blur-3xl opacity-70 ${orb.size}`}
+          className={`absolute hidden md:block rounded-full blur-3xl opacity-70 ${orb.size}`}
           style={{ background: orb.color, top: orb.top, left: orb.left, right: orb.right, bottom: orb.bottom }}
           animate={{ x: orb.x, y: orb.y, scale: [1, 1.14, 0.92, 1] }}
           transition={{ duration: orb.duration, repeat: Infinity, ease: 'easeInOut' }}

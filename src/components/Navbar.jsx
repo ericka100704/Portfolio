@@ -70,17 +70,17 @@ export default function Navbar() {
   )
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50">
+    <header className="fixed inset-x-0 top-0 z-50 px-3 pt-[max(0.5rem,env(safe-area-inset-top))]">
       <motion.nav
-        className={`container-narrow flex h-16 md:h-20 items-center justify-between px-5 sm:px-8 lg:px-12 transition-all duration-500 ${
+        className={`flex h-14 sm:h-16 md:h-20 items-center justify-between gap-2 px-3 sm:px-5 lg:px-8 transition-all duration-500 max-w-6xl mx-auto ${
           lightOnDark
             ? 'bg-transparent'
-            : 'mt-3 mx-3 md:mx-auto rounded-full glass-strong'
+            : 'rounded-full glass-strong'
         }`}
       >
         <a
           href="#home"
-          className={`font-display text-sm md:text-base font-bold tracking-tight ${
+          className={`shrink-0 font-display text-sm md:text-base font-bold tracking-tight whitespace-nowrap ${
             lightOnDark ? 'text-[#f9f4f5]' : 'text-[var(--color-brand)]'
           }`}
         >
@@ -124,7 +124,7 @@ export default function Navbar() {
           </a>
         </div>
 
-        <div className="flex lg:hidden items-center gap-2">
+        <div className="flex lg:hidden items-center gap-2 shrink-0">
           {themeButton}
           <motion.button
             type="button"
@@ -150,7 +150,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
             exit={{ opacity: 0, y: -12, filter: 'blur(8px)' }}
             transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-            className="container-narrow mx-3 mt-2 overflow-hidden rounded-3xl glass-strong lg:hidden"
+            className="max-w-6xl mx-auto mt-2 overflow-hidden rounded-3xl glass-strong lg:hidden"
           >
             <div className="flex flex-col gap-1 p-3">
               {links.map((link, index) => (

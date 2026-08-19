@@ -54,7 +54,7 @@ export default function CaseStudy({ project, onClose }) {
             <p className="text-xs tracking-[0.2em] uppercase text-[#c8b8db]">
               {String(project.id).padStart(2, '0')} {project.type} {project.year}
             </p>
-            <h2 className="mt-3 font-display text-4xl md:text-6xl font-extrabold tracking-tight">
+            <h2 className="mt-3 font-display text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight break-words">
               {project.title}
             </h2>
             <p className="mt-3 text-lg md:text-xl text-[#c8b8db]">{project.subtitle}</p>
@@ -66,7 +66,7 @@ export default function CaseStudy({ project, onClose }) {
                 <span className="h-2.5 w-2.5 rounded-full bg-[#c8b8db]" />
                 <p className="ml-3 truncate text-xs text-[#c8b8db]">{displayUrl(project.demo)}</p>
               </div>
-              <div className="relative aspect-[16/8] bg-[#0a0a0a]">
+              <div className="relative aspect-[16/10] sm:aspect-[16/8] bg-[#0a0a0a]">
                 {project.image ? (
                   <img
                     src={project.image}

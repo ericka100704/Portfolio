@@ -25,7 +25,7 @@ export default function Experience() {
             <motion.article
               key={job.id}
               variants={slideInLeftChild}
-              whileHover={{ y: -8, scale: 1.01, x: 6 }}
+              whileHover={{ y: -4 }}
               transition={{ type: 'spring', stiffness: 280, damping: 22 }}
               className="relative ml-14 md:ml-16 rounded-3xl glass glass-hover glass-shine gradient-border p-6 md:p-8"
             >
