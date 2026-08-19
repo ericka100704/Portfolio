@@ -20,7 +20,7 @@ export default function About() {
             initial="hidden"
             whileInView="show"
             viewport={viewportOnce}
-            className="rounded-2xl glass-strong p-4 md:p-6"
+            className="h-fit self-start rounded-2xl glass-strong p-4 md:p-5"
           >
             <p className="font-display text-xl font-bold text-[var(--color-brand)]">
               {profile.name}
