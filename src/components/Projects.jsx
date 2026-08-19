@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { ArrowUpRight } from 'lucide-react'
 import SectionHeading from './SectionHeading'
 import CaseStudy from './CaseStudy'
@@ -12,13 +12,15 @@ function Preview({ project }) {
   const showImage = Boolean(project.image) && !broken
 
   return (
-    <div className={`relative overflow-hidden rounded-xl bg-gradient-to-br ${project.tone} aspect-[16/8]`}>
+    <div className={`relative overflow-hidden rounded-lg bg-gradient-to-br ${project.tone} aspect-[16/7]`}>
       {showImage ? (
         <img
           src={project.image}
           alt={`${project.title} preview`}
           onError={() => setBroken(true)}
           className="absolute inset-0 h-full w-full object-cover"
+          loading="lazy"
+          decoding="async"
         />
       ) : (
         <div className="absolute inset-4 rounded-xl border border-white/10 bg-black/25">
@@ -40,7 +42,7 @@ function Preview({ project }) {
       <p className="absolute left-3 top-3 text-[9px] font-semibold tracking-[0.16em] uppercase text-[#c8b8db]">
         {project.tag}
       </p>
-      <h3 className="absolute bottom-3 left-3 right-8 font-display text-lg md:text-xl font-bold text-[#f9f4f5]">
+      <h3 className="absolute bottom-2 left-2 right-8 font-display text-sm md:text-base font-bold text-[#f9f4f5]">
         {project.title}
       </h3>
     </div>
@@ -94,52 +96,42 @@ export default function Projects() {
           })}
         </div>
 
-        <motion.div layout className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
-          <AnimatePresence mode="popLayout">
-            {filtered.map((project, index) => {
+        <div className="grid gap-2.5 sm:grid-cols-2 xl:grid-cols-3">
+          {filtered.map((project) => {
               const number = String(project.id).padStart(2, '0')
               return (
-                <motion.article
+                <article
                   key={project.id}
-                  layout
-                  initial={{ opacity: 0, y: 24 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 12 }}
-                  transition={{ duration: 0.4, delay: index * 0.05, ease: [0.22, 1, 0.36, 1] }}
-                  whileHover={{ y: -6 }}
-                  className="relative flex flex-col rounded-2xl bg-[#0a0a0a] p-3.5 text-[#f9f4f5]"
+                  className="relative flex flex-col rounded-xl bg-[#0a0a0a] p-2.5 text-[#f9f4f5]"
                 >
                   <button
                     type="button"
                     onClick={() => setSelected(project)}
                     className="w-full text-left"
                   >
-                    <div className="mb-2.5 flex items-center justify-between text-[11px] tracking-[0.16em] text-[#c8b8db]">
+                    <div className="mb-1.5 flex items-center justify-between text-[10px] tracking-[0.16em] text-[#c8b8db]">
                       <span>{number}</span>
                       <span>{project.year}</span>
                     </div>
                     <Preview project={project} />
-                    <div className="mt-3 pr-12">
-                      <h3 className="font-display text-base md:text-lg font-bold">{project.title}</h3>
-                      <p className="mt-0.5 text-xs leading-snug text-[#c8b8db]">{project.blurb}</p>
+                    <div className="mt-2 pr-10">
+                      <h3 className="font-display text-sm md:text-base font-bold">{project.title}</h3>
+                      <p className="mt-0.5 text-[11px] leading-snug text-[#c8b8db]">{project.blurb}</p>
                     </div>
                   </button>
 
-                  <motion.button
+                  <button
                     type="button"
                     onClick={() => setSelected(project)}
-                    whileHover={{ scale: 1.08, rotate: 12 }}
-                    whileTap={{ scale: 0.94 }}
                     aria-label={`Open ${project.title} case study`}
-                    className="absolute bottom-3.5 right-3.5 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#f9f4f5] text-[#0a0a0a]"
+                    className="absolute bottom-2.5 right-2.5 inline-flex h-7 w-7 items-center justify-center rounded-full bg-[#f9f4f5] text-[#0a0a0a]"
                   >
-                    <ArrowUpRight size={14} />
-                  </motion.button>
-                </motion.article>
+                    <ArrowUpRight size={13} />
+                  </button>
+                </article>
               )
             })}
-          </AnimatePresence>
-        </motion.div>
+        </div>
       </div>
       <CaseStudy project={selected} onClose={() => setSelected(null)} />
     </section>

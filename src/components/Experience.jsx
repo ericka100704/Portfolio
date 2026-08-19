@@ -21,13 +21,11 @@ export default function Experience() {
           viewport={viewportOnce}
           className="relative space-y-5 before:absolute before:left-[1.15rem] before:top-4 before:bottom-4 before:w-px before:bg-[var(--color-line)] md:before:left-6"
         >
-          {experience.map((job, index) => (
+          {experience.map((job) => (
             <motion.article
               key={job.id}
               variants={slideInLeftChild}
-              whileHover={{ y: -4 }}
-              transition={{ type: 'spring', stiffness: 280, damping: 22 }}
-              className="relative ml-14 md:ml-16 rounded-3xl glass glass-hover glass-shine gradient-border p-6 md:p-8"
+              className="relative ml-12 md:ml-16 rounded-2xl glass p-4 md:p-6"
             >
               <motion.div
                 variants={popInChild}
@@ -38,7 +36,7 @@ export default function Experience() {
 
               <div className="flex flex-wrap items-start justify-between gap-3">
                 <div>
-                  <h3 className="font-display text-xl md:text-2xl font-bold text-[var(--color-brand)]">
+                  <h3 className="font-display text-lg md:text-xl font-bold text-[var(--color-brand)]">
                     {job.role}
                   </h3>
                   <p className="mt-1 font-medium text-[var(--color-ink-muted)]">
@@ -58,27 +56,14 @@ export default function Experience() {
                 </div>
               </div>
 
-              <p className="mt-4 leading-relaxed text-[var(--color-ink-muted)]">{job.summary}</p>
+              <p className="mt-3 text-sm leading-relaxed text-[var(--color-ink-muted)]">{job.summary}</p>
 
-              <ul className="mt-5 space-y-2 text-sm leading-relaxed text-[var(--color-ink-muted)]">
-                {job.highlights.map((item, i) => (
-                  <motion.li
-                    key={item}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={viewportOnce}
-                    transition={{ duration: 0.5, delay: index * 0.15 + i * 0.08, ease: [0.22, 1, 0.36, 1] }}
-                    className="flex gap-2"
-                  >
-                    <motion.span
-                      initial={{ scale: 0 }}
-                      whileInView={{ scale: 1 }}
-                      viewport={viewportOnce}
-                      transition={{ delay: index * 0.15 + i * 0.08 + 0.2, type: 'spring', stiffness: 400 }}
-                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-accent)]"
-                    />
+              <ul className="mt-3 space-y-1.5 text-sm leading-relaxed text-[var(--color-ink-muted)]">
+                {job.highlights.map((item) => (
+                  <li key={item} className="flex gap-2">
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-accent)]" />
                     <span>{item}</span>
-                  </motion.li>
+                  </li>
                 ))}
               </ul>
             </motion.article>

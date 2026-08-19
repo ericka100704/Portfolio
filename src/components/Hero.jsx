@@ -7,19 +7,26 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative flex min-h-[100dvh] items-center overflow-hidden"
-      style={{
-        background:
-          'radial-gradient(ellipse 80% 70% at 15% 20%, rgba(200, 184, 219, 0.28), transparent 55%), radial-gradient(ellipse 70% 60% at 90% 10%, rgba(112, 88, 124, 0.55), transparent 50%), linear-gradient(160deg, #2a1830 0%, #502f4c 42%, #70587c 100%)',
-      }}
+      className="relative flex min-h-[100dvh] items-center overflow-hidden bg-[#1a1320]"
     >
+      <picture>
+        <source media="(max-width: 767px)" srcSet="/hero-sm.jpg" />
+        <img
+          src="/hero.jpg"
+          alt=""
+          decoding="async"
+          fetchPriority="high"
+          className="absolute inset-0 h-full w-full object-cover object-center"
+        />
+      </picture>
+      <div aria-hidden className="absolute inset-0 bg-[#1a1320]/55 md:bg-[#502f4c] md:mix-blend-multiply md:opacity-80" />
       <div
         aria-hidden
-        className="pointer-events-none absolute -left-24 top-24 h-72 w-72 rounded-full bg-[#c8b8db]/20 blur-3xl"
+        className="absolute inset-0 bg-gradient-to-r from-[#1a1320]/80 via-[#502f4c]/35 to-[#70587c]/25"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute -right-16 bottom-10 h-80 w-80 rounded-full bg-[#502f4c]/50 blur-3xl"
+        className="absolute inset-0 bg-gradient-to-t from-[#1a1320]/50 via-transparent to-[#1a1320]/30"
       />
 
       <div className="container-narrow relative w-full px-5 pt-24 pb-16 sm:px-8 sm:pt-28 sm:pb-20 lg:px-12">

@@ -102,7 +102,7 @@ export default function Contact() {
                   viewport={viewportOnce}
                   transition={{ duration: 0.4, delay: index * 0.08 }}
                   whileHover={{ x: 6, scale: 1.02 }}
-                  className="flex items-center gap-3 rounded-2xl glass glass-hover glass-shine px-4 py-4 text-[var(--color-brand)]"
+                  className="flex items-center gap-3 rounded-xl glass px-3 py-3 text-[var(--color-brand)]"
                 >
                   <span className="text-[var(--color-accent)]">
                     <Icon size={18} />
@@ -120,7 +120,7 @@ export default function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={viewportOnce}
             transition={{ duration: 0.55, delay: 0.08 }}
-            className="rounded-3xl glass-strong glass-shine gradient-border p-6 md:p-8"
+            className="rounded-2xl glass-strong p-4 md:p-6"
           >
             <div className="grid gap-5 sm:grid-cols-2">
               <label className="block sm:col-span-1">

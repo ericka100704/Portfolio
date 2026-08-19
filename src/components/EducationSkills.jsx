@@ -81,7 +81,7 @@ export default function EducationSkills() {
                   {group.items.map((skill) => (
                     <li
                       key={skill.name}
-                      className="rounded-full border border-[var(--color-line)] bg-[color-mix(in_oklab,var(--color-canvas)_70%,white)] px-3.5 py-1.5 text-sm text-[var(--color-brand)]"
+                      className="rounded-full border border-[var(--color-line)] px-2.5 py-1 text-xs text-[var(--color-brand)]"
                     >
                       {skill.name}
                     </li>

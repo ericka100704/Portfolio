@@ -134,6 +134,28 @@
       radial-gradient(ellipse 55% 45% at 85% 10%, color-mix(in oklab, var(--color-glow-2) 40%, transparent), transparent 55%);
   }
 
+  @media (max-width: 767px) {
+    .bg-mesh {
+      animation: none;
+      background-size: 100% 100%;
+    }
+
+    .noise-overlay {
+      display: none;
+    }
+
+    .glass,
+    .glass-strong {
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+    }
+
+    .glass-shine::after,
+    .gradient-border::before {
+      display: none;
+    }
+  }
+
   .bg-mesh {
     background-color: var(--color-canvas);
     background-image:
@@ -314,6 +336,27 @@
 
   .animate-spin-slow {
     animation: spin-slow 30s linear infinite;
+  }
+
+  .circuit-flow {
+    stroke-dasharray: 18 14;
+    animation: circuit-move 7s linear infinite;
+  }
+
+  .circuit-flow-slow {
+    stroke-dasharray: 12 18;
+    animation: circuit-move 11s linear infinite reverse;
+  }
+
+  @keyframes circuit-move {
+    to { stroke-dashoffset: -220; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .circuit-flow,
+    .circuit-flow-slow {
+      animation: none;
+    }
   }
 
   .section-pad {
